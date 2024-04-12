@@ -1,23 +1,17 @@
 <script>
 	import { page } from '$app/stores';
 	import logo from '$lib/images/svelte-logo.svg';
-	import github from '$lib/images/github.svg';
+	import { fade } from 'svelte/transition';
 </script>
 
-<header>
+<header transition:fade={{ duration: 300 }}>
 	<div class="corner">
 		<a href="https://kit.svelte.dev">
 			<img src={logo} alt="SvelteKit" />
 		</a>
 	</div>
 
-<!--	<div class="corner">-->
-<!--		<a href="https://github.com/sveltejs/kit">-->
-<!--			<img src={github} alt="GitHub" />-->
-<!--		</a>-->
-<!--	</div>-->
-
-	<nav>
+	<nav >
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
@@ -25,13 +19,11 @@
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/">Home</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/about">About</a>
+			<li aria-current={$page.url.pathname === '/login' ? 'page' : undefined}>
+				<a href="/login">Login</a>
 			</li>
 		</ul>
 	</nav>
-
-
 </header>
 
 <style>
@@ -63,7 +55,12 @@
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
+		--background: #555555;
+		transition: background-color .3s linear;
+	}
+
+	nav:hover {
+		--background: var(--color-bg-0);
 	}
 
 	svg {
@@ -92,7 +89,6 @@
 	li {
 		position: relative;
 		height: 100%;
-		padding: 0 20px 0 20px;
 	}
 
 	li[aria-current='page']::before {
@@ -111,8 +107,8 @@
 		display: flex;
 		height: 100%;
 		align-items: center;
-		padding: 0 0.5rem;
-		color: var(--color-text);
+		padding: 0 2rem;
+		color: var(--color-bg-0);
 		font-weight: 700;
 		font-size: 0.8rem;
 		text-transform: uppercase;
@@ -121,7 +117,11 @@
 		transition: color 0.2s linear;
 	}
 
+	nav:hover a {
+		color: var(--color-text);
+	}
+
 	a:hover {
-		color: var(--color-theme-1);
+		color: var(--color-theme-1) !important;
 	}
 </style>

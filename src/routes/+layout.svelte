@@ -30,9 +30,9 @@
 		bottom: 0;
 		left: 0;
 		background-image: url("src/lib/images/noise.png");
-		background-size: 258px 258px;
+		background-size: 129px 129px;
 		background-repeat: repeat;
-		opacity: 0.05;
+		opacity: 0.08;
 		z-index: -1;
 	}
 
