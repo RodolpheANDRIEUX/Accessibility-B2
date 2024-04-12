@@ -2,12 +2,14 @@
     <img id="ynov-footer-logo" src="src/lib/images/ynov-logo.png" alt="Logo d'ynov" height="100">
     <div>
         <p>© 2023 - Rodolphe ANDRIEUX</p>
-        <a href="https://www.linkedin.com/in/rodolphe-andrieux" target="_blank">
-            <img src="src/lib/images/linkedin.svg" alt="Logo LinkedIn" width="30" height="30">
-        </a>
-        <a href="https://github.com/RodolpheANDRIEUX" target="_blank">
-            <img src="src/lib/images/github.svg" alt="Logo GitHub" width="30" height="30">
-        </a>
+        <div id="flex-icons">
+            <a href="https://www.linkedin.com/in/rodolphe-andrieux" target="_blank">
+                <img src="src/lib/images/linkedin.svg" alt="Logo LinkedIn" width="30" height="30">
+            </a>
+            <a href="https://github.com/RodolpheANDRIEUX" target="_blank">
+                <img src="src/lib/images/github.svg" alt="Logo GitHub" width="30" height="30">
+            </a>
+        </div>
     </div>
 </footer>
 
@@ -29,8 +31,16 @@
         align-items: center;
     }
 
-    footer div * {
+    footer p {
         margin-bottom: 10px;
+    }
+
+    footer #flex-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 20px;
     }
 
     footer #ynov-footer-logo {

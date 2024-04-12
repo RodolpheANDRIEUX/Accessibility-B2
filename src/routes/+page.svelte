@@ -1,6 +1,5 @@
 <script>
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	export let data;
 </script>
 
 <svelte:head>
@@ -9,48 +8,67 @@
 </svelte:head>
 
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
+	{#each data.posts as post}
+		<a href="/article/{post.id}">
+			<article>
+				<div>
+					<h2>{post.title}</h2>
+					<p>{@html post.content}</p>
+				</div>
+				{#if post.image}
+					<picture>
+						<source type="image/webp" srcset={post.image.imageLink} />
+						<img src="../lib/images/{post.image.imageFile}" alt={post.image.imageAlt} />
+					</picture>
+				{/if}
+			</article>
+		</a>
+	{/each}
 
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
 </section>
 
 <style>
 	section {
+		padding-top: 50px;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	article {
+		transition: .3s;
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
+		gap: 5%;
+		margin-bottom: 5rem;
+		padding: 1rem;
+		box-shadow: #444444 -1px 3px 6px -5px;
 	}
 
-	h1 {
-		width: 100%;
+	article:hover {
+		transform: translateY(-5px);
+		border-top: var(--color-theme-1) 2px solid;
+		background-color: #f0f0f0f0;
+		box-shadow: #444444 -1px 3px 6px -5px;
 	}
 
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
+	article > div {
+		flex: 2;
 	}
 
-	.welcome img {
-		position: absolute;
+	h2 {
+		margin-bottom: 0.5rem;
+		font-size: 1.5rem;
+	}
+
+	picture {
+		flex: 1;
+	}
+
+	img {
 		width: 100%;
 		height: 100%;
-		top: 0;
-		display: block;
+		object-fit: cover;
 	}
 </style>
