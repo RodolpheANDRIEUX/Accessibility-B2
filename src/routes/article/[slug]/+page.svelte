@@ -3,27 +3,19 @@
     import { onMount } from 'svelte';
     import Table from './Table.svelte';
 
-    let picture;
+    let button;
     let dialog;
 
     onMount(() => {
-        picture = document.querySelector('picture');
+        button = document.querySelector('button');
         dialog = document.querySelector('dialog');
 
-        if (picture === null || dialog === null) {
+        if (button === null || dialog === null) {
             return;
         }
 
-        picture.addEventListener('click', () => {
-            dialog.showModal();
-        });
-
         dialog.addEventListener('click', () => {
             dialog.close();
-        });
-
-        dialog.addEventListener('show', (event) => {
-            event.preventDefault();
         });
     });
 
@@ -44,12 +36,14 @@
             <dialog>
                 <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}-100.webp" alt={data.image.imageAlt} />
             </dialog>
-            <picture style="view-transition-name: {data.image.imageName};">
-                <source media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-100.webp" /> <!-- 100% quality -->
-                <source media="(min-width: 600px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-75.webp" /> <!-- 75% quality -->
-                <source type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-20.webp" />	<!-- 20% quality -->
-                <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}.jpg" alt={data.image.imageAlt} /> <!-- Fallback -->
-            </picture>
+            <button on:click={() => dialog.showModal()} on:keydown={(event) => { if (event.key === 'Enter') dialog.showModal(); }}>
+                <picture style="view-transition-name: {data.image.imageName};">
+                    <source media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-100.webp" /> <!-- 100% quality -->
+                    <source media="(min-width: 600px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-75.webp" /> <!-- 75% quality -->
+                    <source type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-20.webp" /> <!-- 20% quality -->
+                    <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}.jpg" alt={data.image.imageAlt} /> <!-- Fallback -->
+                </picture>
+            </button>
         {/if}
     </article>
 </section>
@@ -110,6 +104,14 @@
 
     #comment p {
         margin: 0 0 2rem 1rem;
+    }
+
+    button {
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
     }
 
     dialog {

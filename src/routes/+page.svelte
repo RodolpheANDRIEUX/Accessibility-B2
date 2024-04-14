@@ -8,22 +8,24 @@
 	<meta name="description" content="Un blog accessible de fou" />
 </svelte:head>
 
+<h1 class="visually-hidden">Titre de la page</h1>
+
 <picture>
 	<source class="bg-decorations coffee1" media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/coffee1.webp" />
-	<img class="bg-decorations coffee1" src="/src/lib/images/coffee1.png" alt="coffee" />
+	<img role="presentation" class="bg-decorations coffee1" src="/src/lib/images/coffee1.png" alt="coffee" />
 </picture>
 <picture>
 	<source class="bg-decorations coffee" media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/coffee.webp" />
-	<img class="bg-decorations coffee" src="/src/lib/images/coffee.png" alt="more coffee" />
+	<img role="presentation" class="bg-decorations coffee" src="/src/lib/images/coffee.png" alt="more coffee" />
 </picture>
 
 
 <section>
 	{#each data.posts as post}
 		<a class="article-link" href="/article/{post.id}">
-			<article>
-				<div>
-					<h2 style="view-transition-name: {post.title};">{post.title}</h2>
+			<article aria-labelledby="title-{post.id}">
+				<div role="article">
+					<h2 id="title-{post.id}" style="view-transition-name: {post.title};">{post.title}</h2>
 					<p style="view-transition-name: {post.id}-content;">{@html post.content}</p>
 				</div>
 				{#if post.image}
@@ -39,7 +41,7 @@
 		{#if post.comments}
 			<a href="/article/{post.id}#commentaires">
 				<aside>
-					<img class="comments-icon" src={comment} alt="comment" />
+					<img class="comments-icon" src={comment} alt="comment-icon" />
 					<p class="comments">{post.comments.length} comments</p>
 				</aside>
 			</a>
@@ -153,5 +155,16 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+	}
+
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		border: 0;
 	}
 </style>

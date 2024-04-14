@@ -7,8 +7,8 @@
 	onNavigate(() => {
 		if (!document.startViewTransition) return;
 
-		return new Promise((fulfil) => {
-			document.startViewTransition(() => new Promise(fulfil));
+		return new Promise((fulfill) => {
+			document.startViewTransition(() => new Promise(fulfill));
 		});
 	});
 </script>

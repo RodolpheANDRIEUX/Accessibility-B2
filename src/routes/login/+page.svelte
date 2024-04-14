@@ -69,7 +69,7 @@
 </svelte:head>
 
 <section>
-	<div id="container" in:fade={{ delay: 200, duration: 400 }}>
+	<div id="container" in:fade={{ delay: 100, duration: 400 }}>
 		<h1 in:slide={{ delay: 200, duration: 400 }}>Sign up</h1>
 		{#if errorMessage}
 			<p id="errorMessage" in:slide={{ duration: 400 }}>{errorMessage}</p>
@@ -87,7 +87,7 @@
 					<label for={fieldKey}>{fieldKey}</label>
 				</div>
 			{/each}
-			<button type="submit" in:slide={{ duration: 200 }}>Submit</button>
+			<button type="submit" in:slide={{ delay: 500, duration: 200 }}>Submit</button>
 		</form>
 	</div>
 </section>

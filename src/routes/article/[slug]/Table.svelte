@@ -8,8 +8,8 @@
     ];
 </script>
 
-<table aria-describedby="A useless table">
-    <caption id="demoTable">Un tableau vachement utile</caption>
+<table aria-describedby="Useless-Table">
+    <caption id="Useless-Table">Un tableau vachement utile</caption>
     <thead>
     <tr>
         <th scope="col">ID</th>

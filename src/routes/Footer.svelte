@@ -6,8 +6,8 @@
 
 <footer>
     <img id="ynov-footer-logo" src={ynov} alt="Logo d'ynov">
-    <div>
-        <p>© 2023 - Rodolphe ANDRIEUX</p>
+    <div id="flex-div">
+        <p>© 2024 - Rodolphe ANDRIEUX</p>
         <div id="flex-icons">
             <a href="https://www.linkedin.com/in/rodolphe-andrieux" target="_blank">
                 <img src={linkedin} alt="Logo LinkedIn" width="40" height="40">
@@ -28,7 +28,7 @@
         color: var(--color-bg-0);
     }
 
-    footer div {
+    #flex-div {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -56,7 +56,7 @@
         background-blend-mode: exclusion;
     }
 
-    a{
+    a {
         transition: transform .3s;
     }
 
