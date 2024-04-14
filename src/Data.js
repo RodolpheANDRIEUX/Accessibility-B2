@@ -5,8 +5,7 @@ export const posts = [
         "content": "<p>We hope your brief detention in the relaxation vault has been a pleasant one.</p><p>Your specimen has been processed and we are now ready to begin the test proper.</p>",
         "image":
             {
-                "imageFile": "ApertureScience.webp",
-                "imageLink": "https://www.smith.edu/sites/default/files/styles/content_header_image_large/public/media/Documents/Computer-Science/comp_sci_banner.jpg.webp?itok=msFtW8tX",
+                "imageName": "ApertureScience",
                 "imageAlt": "Aperture Science logo"
             },
         "author": "GLaDOS",
@@ -33,8 +32,7 @@ export const posts = [
         "content": "<p>Cake and grief counseling will be available at the conclusion of the test. Thank you for helping us help you help us all.</p>",
         "image":
             {
-                "imageFile": "Cake.avif",
-                "imageLink": "https://img.passeportsante.net/1200x675/2020-12-22/i98414-molly-cake-au-chocolat-vegane.webp",
+                "imageName": "Cake",
                 "imageAlt": "Cake"
             },
         "author": "GLaDOS",
@@ -71,8 +69,7 @@ export const posts = [
         "content": "<p>The Enrichment Center reminds you that the Weighted Companion Cube will never threaten to stab you and, in fact, cannot speak.</p>",
         "image":
             {
-                "imageFile": "CompanionCube.webp",
-                "imageLink": "https://media.printables.com/media/prints/772377/images/6006643_d4ed6271-aa22-464a-9b0e-99ec908bf174_30b1ddd4-ddde-43af-abb9-4cf01b4caae8/thumbs/inside/1280x960/png/companioncube-v11.webp",
+                "imageName": "CompanionCube",
                 "imageAlt": "Weighted Companion Cube"
             },
         "author": "GLaDOS",

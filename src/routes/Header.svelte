@@ -1,19 +1,18 @@
 <script>
 	import { page } from '$app/stores';
-	import logo from '$lib/images/svelte-logo.svg';
-	import { fade } from 'svelte/transition';
+	import logo from '$lib/images/logo.svg';
 </script>
 
-<header transition:fade={{ duration: 300 }}>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
+<header>
+	<div id="logo">
+		<a href="/">
+			<img src={logo} alt="Blog" />
 		</a>
 	</div>
 
 	<nav >
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
+		<svg id="svg-line" viewBox="0 0 2 3" aria-hidden="true">
+			<path d="M0,0 C1.5,3 2,3 2,3 L2,0 Z" />
 		</svg>
 		<ul>
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
@@ -31,39 +30,31 @@
 		display: flex;
 		justify-content: space-between;
 		background: #444444;
+		view-transition-name: header;
 	}
 
-	.corner {
-		width: 3em;
-		height: 3em;
-	}
-
-	.corner a {
+	#logo a {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 100%;
 		height: 100%;
 	}
 
-	.corner img {
-		width: 2em;
-		height: 2em;
+	#logo img {
+		margin-left: 30px;
+		height: 2.2em;
 		object-fit: contain;
 	}
 
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: #555555;
-		transition: background-color .3s linear;
-	}
-
-	nav:hover {
 		--background: var(--color-bg-0);
+		transition: background-color .3s linear;
+		view-transition-name: navbar;
 	}
 
-	svg {
+	#svg-line {
 		width: 2em;
 		height: 3em;
 		display: block;
@@ -101,6 +92,7 @@
 		left: calc(50% - var(--size));
 		border: var(--size) solid transparent;
 		border-top: var(--size) solid var(--color-theme-1);
+		view-transition-name: indicator;
 	}
 
 	nav a {
@@ -108,20 +100,16 @@
 		height: 100%;
 		align-items: center;
 		padding: 0 2rem;
-		color: var(--color-bg-0);
+		color: var(--color-text);
 		font-weight: 700;
-		font-size: 0.8rem;
+		font-size: .8rem;
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		letter-spacing: .2em;
 		text-decoration: none;
 		transition: color 0.2s linear;
 	}
 
-	nav:hover a {
-		color: var(--color-text);
-	}
-
 	a:hover {
-		color: var(--color-theme-1) !important;
+		color: var(--color-theme-1);
 	}
 </style>

@@ -1,13 +1,19 @@
+<script>
+    import ynov from '$lib/images/ynov-logo.png';
+    import github from '$lib/images/github.svg';
+    import linkedin from '$lib/images/linkedin.svg';
+</script>
+
 <footer>
-    <img id="ynov-footer-logo" src="src/lib/images/ynov-logo.png" alt="Logo d'ynov" height="100">
+    <img id="ynov-footer-logo" src={ynov} alt="Logo d'ynov">
     <div>
         <p>© 2023 - Rodolphe ANDRIEUX</p>
         <div id="flex-icons">
             <a href="https://www.linkedin.com/in/rodolphe-andrieux" target="_blank">
-                <img src="src/lib/images/linkedin.svg" alt="Logo LinkedIn" width="30" height="30">
+                <img src={linkedin} alt="Logo LinkedIn" width="40" height="40">
             </a>
             <a href="https://github.com/RodolpheANDRIEUX" target="_blank">
-                <img src="src/lib/images/github.svg" alt="Logo GitHub" width="30" height="30">
+                <img src={github} alt="Logo GitHub" width="40" height="40">
             </a>
         </div>
     </div>
@@ -19,8 +25,7 @@
         justify-content: flex-start;
         align-items: flex-start;
         background-color: #2e2e2e;
-        color: white;
-        padding-bottom: 50px;
+        color: var(--color-bg-0);
     }
 
     footer div {
@@ -33,6 +38,7 @@
 
     footer p {
         margin-bottom: 10px;
+        padding: 0 1rem;
     }
 
     footer #flex-icons {
@@ -44,6 +50,17 @@
     }
 
     footer #ynov-footer-logo {
-        background: white;
+        padding: 0 30px;
+        background: var(--color-bg-0);
+        height: 110px;
+        background-blend-mode: exclusion;
+    }
+
+    a{
+        transition: transform .3s;
+    }
+
+    a:hover {
+        transform: scale(1.2);
     }
 </style>

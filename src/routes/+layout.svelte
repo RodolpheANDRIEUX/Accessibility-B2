@@ -2,6 +2,15 @@
 	import Header from './Header.svelte';
 	import Footer from './Footer.svelte';
 	import './styles.css';
+	import { onNavigate } from "$app/navigation";
+
+	onNavigate(() => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((fulfil) => {
+			document.startViewTransition(() => new Promise(fulfil));
+		});
+	});
 </script>
 
 <div class="app">
@@ -29,7 +38,7 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
-		background-image: url("src/lib/images/noise.png");
+		background-image: url("$lib/images/noise.png");
 		background-size: 129px 129px;
 		background-repeat: repeat;
 		opacity: 0.08;
