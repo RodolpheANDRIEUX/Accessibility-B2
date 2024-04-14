@@ -19,7 +19,7 @@
 
 		for (let key in fields) {
 			if (!fields[key]) {
-				errorMessage = `${key} is required`;
+				errorMessage = `${key}  is required`;
 				return false;
 			}
 		}
@@ -54,7 +54,7 @@
 			return false;
 		}
 
-		errorMessage = 'ok fine, you can log in now.';
+		errorMessage = 'ok fine, you can log in now 😉';
 		return true;
 	}
 

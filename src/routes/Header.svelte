@@ -83,15 +83,15 @@
 	}
 
 	li[aria-current='page']::before {
-		--size: 6px;
+		--width: 30px;
+		--height: 3px;
 		content: '';
-		width: 0;
-		height: 0;
+		width: var(--width);
+		height: var(--height);
 		position: absolute;
 		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
+		left: calc(50% - var(--width) / 2);
+		background-color: var(--color-theme-1);
 		view-transition-name: indicator;
 	}
 

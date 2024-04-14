@@ -1,6 +1,7 @@
 <script>
     export let data;
     import { onMount } from 'svelte';
+    import Table from './Table.svelte';
 
     let picture;
     let dialog;
@@ -33,34 +34,70 @@
     <meta name="description" content="Article de blog {data.title}" />
 </svelte:head>
 
-<article>
-    <div>
-        <h2>{data.title}</h2>
-        <p>{@html data.content}</p>
-    </div>
-    {#if data.image}
-        <dialog>
-            <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}-100.webp" alt={data.image.imageAlt} />
-        </dialog>
-        <picture style="view-transition-name: {data.image.imageName};">
-            <source media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-100.webp" /> <!-- 100% quality -->
-            <source media="(min-width: 600px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-75.webp" /> <!-- 75% quality -->
-            <source type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-20.webp" />	<!-- 20% quality -->
-            <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}.jpg" alt={data.image.imageAlt} /> <!-- Fallback -->
-        </picture>
+<section>
+    <article>
+        <div>
+            <h1>{data.title}</h1>
+            <p>{@html data.content}</p>
+        </div>
+        {#if data.image}
+            <dialog>
+                <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}-100.webp" alt={data.image.imageAlt} />
+            </dialog>
+            <picture style="view-transition-name: {data.image.imageName};">
+                <source media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-100.webp" /> <!-- 100% quality -->
+                <source media="(min-width: 600px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-75.webp" /> <!-- 75% quality -->
+                <source type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-20.webp" />	<!-- 20% quality -->
+                <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}.jpg" alt={data.image.imageAlt} /> <!-- Fallback -->
+            </picture>
+        {/if}
+    </article>
+</section>
+
+<section>
+    <h2 id="commentaires">Commentaires</h2>
+    {#if data.comments.length > 0}
+        {#each data.comments as comment}
+            <article id="comment">
+                <h3>{comment.author}</h3>
+                <p>{comment.content}</p>
+            </article>
+        {/each}
+    {:else}
+        <p>Il n'y a pas encore de commentaires pour cet article.</p>
     {/if}
-</article>
+</section>
+
+<section>
+    <h2>Tableau</h2>
+    <Table {data} />
+</section>
+
 
 <style>
-    article {
-        margin: 0 auto;
-        max-width: 800px;
+    section {
+        margin-bottom: 3rem;
     }
 
-    h2 {
+    article {
+        margin: 0 auto;
+        max-width: 1140px;
+    }
+
+    h1 {
         margin-bottom: 3rem;
         font-size: 3rem;
         font-weight: 600;
+    }
+
+    h2 {
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    h3 {
+        margin-bottom: .8rem;
     }
 
     p {
@@ -69,6 +106,10 @@
         border-left: var(--color-theme-1) 2px solid;
         padding: 1rem;
         line-height: 1.5;
+    }
+
+    #comment p {
+        margin: 0 0 2rem 1rem;
     }
 
     dialog {

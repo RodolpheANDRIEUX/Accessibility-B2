@@ -35,19 +35,22 @@
 					</picture>
 				{/if}
 			</article>
-			{#if post.comments}
+		</a>
+		{#if post.comments}
+			<a href="/article/{post.id}#commentaires">
 				<aside>
 					<img class="comments-icon" src={comment} alt="comment" />
 					<p class="comments">{post.comments.length} comments</p>
 				</aside>
-			{/if}
-		</a>
+			</a>
+
+		{/if}
 	{/each}
 </section>
 
 <style>
 	section {
-		padding-top: 50px;
+		padding: 5rem 0;
 	}
 
 	.bg-decorations {
@@ -82,10 +85,14 @@
 	}
 
 	aside {
+		margin-left: 2rem;
 		display: flex;
 		gap: 0.8rem;
 		align-items: center;
-		transform: translate(2rem, -2.8rem);
+	}
+
+	a {
+		color: inherit;
 	}
 
 	.comments-icon {
@@ -108,7 +115,7 @@
 		flex-direction: row;
 		gap: 5%;
 		padding: 1rem;
-		margin-bottom: 3rem;
+		margin-top: 3rem;
 		box-shadow: #444444 -1px 3px 6px -5px;
 		border-top: transparent 2px solid;
 	}
@@ -138,6 +145,8 @@
 
 	picture {
 		flex: 2;
+		max-height: 250px;
+		overflow: hidden;
 	}
 
 	article	img {
