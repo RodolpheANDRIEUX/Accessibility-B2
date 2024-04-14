@@ -56,7 +56,7 @@
 
 <section>
     <h2 id="commentaires">Commentaires</h2>
-    {#if data.comments.length > 0}
+    {#if data.comments && data.comments.length > 0}
         {#each data.comments as comment}
             <article id="comment">
                 <h3>{comment.author}</h3>
