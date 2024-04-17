@@ -9,7 +9,7 @@
 </script>
 
 <table aria-describedby="Useless-Table">
-    <caption id="Useless-Table">Un tableau vachement utile</caption>
+    <caption id="Useless-Table">A useful table (trust me)</caption>
     <thead>
     <tr>
         <th scope="col">ID</th>

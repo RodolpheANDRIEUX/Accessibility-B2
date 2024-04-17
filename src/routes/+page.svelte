@@ -39,7 +39,7 @@
 			</article>
 		</a>
 		{#if post.comments}
-			<a href="/article/{post.id}#commentaires">
+			<a href="/article/{post.id}#comments">
 				<aside>
 					<img class="comments-icon" src={comment} alt="comment-icon" />
 					<p class="comments">{post.comments.length} comments</p>

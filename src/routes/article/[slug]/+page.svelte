@@ -49,7 +49,7 @@
 </section>
 
 <section>
-    <h2 id="commentaires">Commentaires</h2>
+    <h2 id="comments">Comments</h2>
     {#if data.comments && data.comments.length > 0}
         {#each data.comments as comment}
             <article id="comment">
@@ -58,7 +58,7 @@
             </article>
         {/each}
     {:else}
-        <p>Il n'y a pas encore de commentaires pour cet article.</p>
+        <p>there is no comment for this article.</p>
     {/if}
 </section>
 
