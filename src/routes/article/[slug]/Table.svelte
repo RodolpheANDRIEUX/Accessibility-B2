@@ -51,13 +51,8 @@
     }
 
     td:hover {
-        background-color: #f2f2f2a0;
         scale: 1.1;
         transform: translate(5%, 0);
-    }
-
-    td:nth-child(1):hover  {
-        background-color: #f2f2f2;
     }
 
     th {

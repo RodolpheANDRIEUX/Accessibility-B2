@@ -36,6 +36,7 @@
 						<img src="/src/lib/images/{post.image.imageName}/{post.image.imageName}.jpg" alt={post.image.imageAlt} /> <!-- Fallback -->
 					</picture>
 				{/if}
+				<time datetime={post.date}>{post.date}</time>
 			</article>
 		</a>
 		{#if post.comments}

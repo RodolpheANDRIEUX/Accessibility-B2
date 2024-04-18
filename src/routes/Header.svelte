@@ -41,7 +41,7 @@
 	}
 
 	#logo img {
-		margin-left: 30px;
+		margin-left: 3vw;
 		height: 2.2em;
 		object-fit: contain;
 	}
@@ -99,7 +99,7 @@
 		display: flex;
 		height: 100%;
 		align-items: center;
-		padding: 0 2rem;
+		padding: 0 2em;
 		color: var(--color-text);
 		font-weight: 700;
 		font-size: .8rem;

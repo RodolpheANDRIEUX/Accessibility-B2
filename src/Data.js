@@ -12,19 +12,23 @@ export const posts = [
         "comments": [
             {
                 "author": "Chell",
-                "content": "do you think I'm a specimen?"
+                "content": "do you think I'm a specimen?",
+                "date": "2021-06-01T00:00:00.000Z"
             },
             {
                 "author": "GLaDOS",
-                "content": "Yes, you are a specimen."
+                "content": "Yes, you are a specimen.",
+                "date": "2021-06-01T00:00:00.000Z"
             }
-        ]
+        ],
+        "date": "2021-06-01T00:00:00.000Z"
     },
     {
         "id": "2",
         "title": "Safety notice",
         "content": "<p>While safety is one of many Enrichment Center Goals, the Aperture Science High Energy Pellet, seen to the left of the chamber, can and has caused permanent disabilities, such as vaporization. Please be careful.</p>",
         "author": "GLaDOS",
+        "date": "2021-06-01T00:00:00.000Z"
     },
     {
         "id": "3",
@@ -39,27 +43,33 @@ export const posts = [
         "comments": [
             {
                 "author": "Ratman",
-                "content": "The cake is a lie."
+                "content": "The cake is a lie.",
+                "date": "2021-06-01T00:00:00.000Z"
             },
             {
                 "author": "Turret",
-                "content": "Are you still there?"
+                "content": "Are you still there?",
+                "date": "2021-06-01T00:00:00.000Z"
             },
             {
                 "author": "Wheatley",
-                "content": "Brilliant! I'm not dead!"
+                "content": "Brilliant! I'm not dead!",
+                "date": "2021-06-01T00:00:00.000Z"
             },
             {
                 "author": "Doug Rattmann",
-                "content": "Don't trust her. Don't trust anything."
+                "content": "Don't trust her. Don't trust anything.",
+                "date": "2021-06-01T00:00:00.000Z"
             },
             {
                 "author": "Companion Cube",
-                "content": "..."
+                "content": "...",
+                "date": "2021-06-01T00:00:00.000Z"
             },
             {
                 "author": "GLaDOS",
-                "content": "The cake is not a lie. It is delicious and moist."
+                "content": "The cake is not a lie. It is delicious and moist.",
+                "date": "2021-06-01T00:00:00.000Z"
             }
         ]
     },
@@ -76,13 +86,16 @@ export const posts = [
         "comments": [
             {
                 "author": "Chell",
-                "content": "I've grown quite fond of it."
+                "content": "I've grown quite fond of it.",
+                "date": "2021-06-01T00:00:00.000Z"
             },
             {
                 "author": "GLaDOS",
-                "content": "It's just a cube. It cannot feel love."
+                "content": "It's just a cube. It cannot feel love.",
+                "date": "2021-06-01T00:00:00.000Z"
             }
-        ]
+        ],
+        "date": "2021-06-01T00:00:00.000Z"
     },
     {
         "id": "5",
@@ -92,8 +105,10 @@ export const posts = [
         "comments": [
             {
                 "author": "Chell",
-                "content": "Not funny. I was actually on fire."
+                "content": "Not funny. I was actually on fire.",
+                "date": "2021-06-01T00:00:00.000Z"
             }
-        ]
+        ],
+        "date": "2021-06-01T00:00:00.000Z"
     }
 ];

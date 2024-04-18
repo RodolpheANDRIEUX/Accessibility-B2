@@ -26,52 +26,45 @@
     <meta name="description" content="Article de blog {data.title}" />
 </svelte:head>
 
-<section>
-    <article>
-        <div>
-            <h1>{data.title}</h1>
-            <p>{@html data.content}</p>
-        </div>
-        {#if data.image}
-            <dialog>
-                <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}-100.webp" alt={data.image.imageAlt} />
-            </dialog>
-            <button on:click={() => dialog.showModal()} on:keydown={(event) => { if (event.key === 'Enter') dialog.showModal(); }}>
-                <picture style="view-transition-name: {data.image.imageName};">
-                    <source media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-100.webp" /> <!-- 100% quality -->
-                    <source media="(min-width: 600px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-75.webp" /> <!-- 75% quality -->
-                    <source type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-20.webp" /> <!-- 20% quality -->
-                    <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}.jpg" alt={data.image.imageAlt} /> <!-- Fallback -->
-                </picture>
-            </button>
-        {/if}
-    </article>
-</section>
 
-<section>
-    <h2 id="comments">Comments</h2>
-    {#if data.comments && data.comments.length > 0}
-        {#each data.comments as comment}
-            <article id="comment">
-                <h3>{comment.author}</h3>
-                <p>{comment.content}</p>
-            </article>
-        {/each}
-    {:else}
-        <p>there is no comment for this article.</p>
+<article>
+    <div>
+        <h1>{data.title}</h1>
+        <p>{@html data.content}</p>
+    </div>
+    {#if data.image}
+        <dialog>
+            <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}-100.webp" alt={data.image.imageAlt} />
+        </dialog>
+        <button on:click={() => dialog.showModal()} on:keydown={(event) => { if (event.key === 'Enter') dialog.showModal(); }}>
+            <picture style="view-transition-name: {data.image.imageName};">
+                <source media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-100.webp" /> <!-- 100% quality -->
+                <source media="(min-width: 600px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-75.webp" /> <!-- 75% quality -->
+                <source type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-20.webp" /> <!-- 20% quality -->
+                <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}.jpg" alt={data.image.imageAlt} /> <!-- Fallback -->
+            </picture>
+        </button>
     {/if}
-</section>
+</article>
 
-<section>
-    <h2>Tableau</h2>
-    <Table {data} />
-</section>
+<h2>Tableau</h2>
+<Table {data} />
+
+<h2 id="comments">Comments</h2>
+{#if data.comments && data.comments.length > 0}
+    {#each data.comments as comment}
+        <article id="comment">
+            <h3>{comment.author}</h3>
+            <p>{comment.content}</p>
+        </article>
+    {/each}
+{:else}
+    <p>there is no comment for this article.</p>
+{/if}
+
 
 
 <style>
-    section {
-        margin-bottom: 3rem;
-    }
 
     article {
         margin: 0 auto;

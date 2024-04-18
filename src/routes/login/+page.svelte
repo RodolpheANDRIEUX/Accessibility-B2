@@ -1,5 +1,6 @@
 <script>
 	import {fade, slide} from "svelte/transition";
+	import {onMount} from "svelte";
 
 	let fields = {
 		'username': '',
@@ -39,11 +40,6 @@
 		const hasLowercase = /[a-z]/.test(fields.password);
 		const hasDigits = /\d/.test(fields.password);
 
-		if (!hasUppercase || !hasLowercase || !hasDigits) {
-			errorMessage = 'The password must contain at least one uppercase letter, one lowercase letter, and one digit.';
-			return false;
-		}
-
 		if (fields.password.length < 8) {
 			errorMessage = 'The password must be at least 8 characters long';
 			return false;
@@ -61,6 +57,10 @@
 	function determineInputType(fieldKey) {
 		return fieldKey.includes('password') ? 'password' : 'text';
 	}
+
+	onMount(() => {
+		document.getElementById('username').focus();
+	});
 </script>
 
 <svelte:head>
@@ -83,7 +83,7 @@
 						   on:focus={() => (fieldStates[fieldKey] = true)}
 						   on:blur={() => (fieldStates[fieldKey] = fields[fieldKey] !== "")}
 						   type={determineInputType(fieldKey)}
-						   id={fieldKey} name={fieldKey} autocomplete="off">
+						   id={fieldKey} name={fieldKey} autocomplete="off" />
 					<label for={fieldKey}>{fieldKey}</label>
 				</div>
 			{/each}
