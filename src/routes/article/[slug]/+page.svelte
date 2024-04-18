@@ -2,6 +2,7 @@
     export let data;
     import { onMount } from 'svelte';
     import Table from './Table.svelte';
+    import { formatDate } from '$lib/Utils.js';
 
     let button;
     let dialog;
@@ -26,73 +27,98 @@
     <meta name="description" content="Article de blog {data.title}" />
 </svelte:head>
 
-
-<article>
-    <div>
+<section>
+    <article>
         <h1>{data.title}</h1>
+        <time datetime={data.date}>{formatDate(data.date)}</time>
         <p>{@html data.content}</p>
-    </div>
-    {#if data.image}
-        <dialog>
-            <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}-100.webp" alt={data.image.imageAlt} />
-        </dialog>
-        <button on:click={() => dialog.showModal()} on:keydown={(event) => { if (event.key === 'Enter') dialog.showModal(); }}>
-            <picture style="view-transition-name: {data.image.imageName};">
-                <source media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-100.webp" /> <!-- 100% quality -->
-                <source media="(min-width: 600px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-75.webp" /> <!-- 75% quality -->
-                <source type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-20.webp" /> <!-- 20% quality -->
-                <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}.jpg" alt={data.image.imageAlt} /> <!-- Fallback -->
-            </picture>
-        </button>
+
+        {#if data.image}
+            <dialog>
+                <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}.webp" alt={data.image.imageAlt} />
+            </dialog>
+            <button on:click={() => dialog.showModal()} on:keydown={(event) => { if (event.key === 'Enter') dialog.showModal(); }}>
+                <picture>
+                    <source media="(min-width: 540px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-992.webp" />
+                    <source type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-520.webp" />
+                    <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}.jpg" alt={data.image.imageAlt} /> <!-- Fallback -->
+                </picture>
+            </button>
+        {/if}
+
+        <Table {data} />
+    </article>
+</section>
+
+<section>
+    <h2 id="comments">Comments</h2>
+    {#if data.comments && data.comments.length > 0}
+        {#each data.comments as comment}
+            <article id="comment">
+                <div class="h-flex-container">
+                    <h3>{comment.author}</h3>
+                    <time datetime={comment.date}>{formatDate(comment.date)}</time>
+                </div>
+                <p>{comment.content}</p>
+            </article>
+        {/each}
+    {:else}
+        <p>there is no comment for this article.</p>
     {/if}
-</article>
-
-<h2>Tableau</h2>
-<Table {data} />
-
-<h2 id="comments">Comments</h2>
-{#if data.comments && data.comments.length > 0}
-    {#each data.comments as comment}
-        <article id="comment">
-            <h3>{comment.author}</h3>
-            <p>{comment.content}</p>
-        </article>
-    {/each}
-{:else}
-    <p>there is no comment for this article.</p>
-{/if}
-
+</section>
 
 
 <style>
 
+    section {
+        margin-bottom: 2rem;
+    }
+
     article {
-        margin: 0 auto;
+        margin: .3rem 0;
         max-width: 1140px;
     }
 
     h1 {
-        margin-bottom: 3rem;
+        margin-bottom: 1rem;
         font-size: 3rem;
         font-weight: 600;
+        text-align: inherit ;
+    }
+
+    time {
+        font-size: 1.2rem;
+        font-weight: 300;
+        opacity: .5;
+    }
+
+    #comment time {
+        font-size: 1rem;
+    }
+
+    .h-flex-container {
+        display: flex;
+        align-items: end;
+        margin-bottom: .8rem;
+    }
+
+    p {
+        margin-top: 2rem;
+        box-shadow: #444444 -3px 3px 6px -5px;
+        backdrop-filter: blur(5px);
+        border-left: var(--color-theme-1) 2px solid;
+        padding: 1rem;
+        line-height: 1.5;
     }
 
     h2 {
-        margin-bottom: 1rem;
+        margin:  0 0 2rem 0;
         font-size: 2rem;
         font-weight: 500;
     }
 
     h3 {
-        margin-bottom: .8rem;
-    }
-
-    p {
-        box-shadow: #444444 -3px -3px 6px -5px;
-        backdrop-filter: blur(5px);
-        border-left: var(--color-theme-1) 2px solid;
-        padding: 1rem;
-        line-height: 1.5;
+        margin: 0 1rem 0 .5rem;
     }
 
     #comment p {

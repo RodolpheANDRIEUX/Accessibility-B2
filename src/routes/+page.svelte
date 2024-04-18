@@ -1,6 +1,7 @@
 <script>
 	export let data;
 	import comment from '$lib/images/comment.svg';
+	import { formatDate } from '$lib/Utils.js';
 </script>
 
 <svelte:head>
@@ -8,35 +9,32 @@
 	<meta name="description" content="Un blog accessible de fou" />
 </svelte:head>
 
-<h1 class="visually-hidden">Titre de la page</h1>
-
+<h1 class="visually-hidden">Un blog accessible de fou</h1>
 <picture>
-	<source class="bg-decorations coffee1" media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/coffee1.webp" />
-	<img role="presentation" class="bg-decorations coffee1" src="/src/lib/images/coffee1.png" alt="coffee" />
+	<source media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/coffee.webp" />
+	<img aria-hidden="true" class="bg-decorations coffee1" src="/src/lib/images/coffee.png" alt="coffee" />
 </picture>
 <picture>
-	<source class="bg-decorations coffee" media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/coffee.webp" />
-	<img role="presentation" class="bg-decorations coffee" src="/src/lib/images/coffee.png" alt="more coffee" />
+	<source media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/coffee2.webp" />
+	<img aria-hidden="true" class="bg-decorations coffee" src="/src/lib/images/coffee2.png" alt="more coffee" />
 </picture>
-
 
 <section>
 	{#each data.posts as post}
 		<a class="article-link" href="/article/{post.id}">
 			<article aria-labelledby="title-{post.id}">
 				<div role="article">
+					<time datetime={post.date}>{formatDate(post.date)}</time>
 					<h2 id="title-{post.id}" style="view-transition-name: {post.title};">{post.title}</h2>
 					<p style="view-transition-name: {post.id}-content;">{@html post.content}</p>
 				</div>
 				{#if post.image}
-					<picture style="view-transition-name: {post.image.imageName};">
-						<source media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/{post.image.imageName}/{post.image.imageName}-100.webp" /> <!-- 100% quality -->
-						<source media="(min-width: 600vh)" type="image/webp" srcset="/src/lib/images/{post.image.imageName}/{post.image.imageName}-75.webp" /> <!-- 75% quality -->
-						<source type="image/webp" srcset="/src/lib/images/{post.image.imageName}/{post.image.imageName}-20.webp" />	<!-- 20% quality -->
+					<picture>
+						<source media="(min-width: 600vh)" type="image/webp" srcset="/src/lib/images/{post.image.imageName}/{post.image.imageName}-365.webp" />
+						<source type="image/webp" srcset="/src/lib/images/{post.image.imageName}/{post.image.imageName}-520.webp" />
 						<img src="/src/lib/images/{post.image.imageName}/{post.image.imageName}.jpg" alt={post.image.imageAlt} /> <!-- Fallback -->
 					</picture>
 				{/if}
-				<time datetime={post.date}>{post.date}</time>
 			</article>
 		</a>
 		{#if post.comments}
@@ -59,20 +57,20 @@
 	.bg-decorations {
 		z-index: -1;
 		position: absolute;
-		width : 15%;
+		opacity: .8;
 	}
 
 	.coffee1 {
 		top: 100px;
-		left: 2%;
-		scale: 1.2;
+		left: 3vw;
+		width: 15%;
+		opacity: .7;
 	}
 
 	.coffee {
 		bottom: 200px;
 		right: 2%;
-		scale: .8;
-		opacity: .8;
+		width: 20%;
 	}
 
 	@media (max-width: 1700px) {
@@ -103,8 +101,8 @@
 	}
 
 	.comments {
-		opacity: .5;
 		font-size: 1.2rem;
+		opacity: .5;
 	}
 
 	.article-link {
@@ -140,8 +138,12 @@
 		flex: 3;
 	}
 
+	time {
+		opacity: .5;
+	}
+
 	h2 {
-		margin-bottom: 0.5rem;
+		margin: 0.5rem 0;
 		font-size: 1.5rem;
 		font-weight: 600;
 	}

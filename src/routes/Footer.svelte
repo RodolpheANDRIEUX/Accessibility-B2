@@ -5,7 +5,10 @@
 </script>
 
 <footer>
-    <img id="ynov-footer-logo" src={ynov} alt="Logo d'ynov">
+    <picture>
+        <source type="image/webp" srcset="/src/lib/images/ynov-logo.webp">
+        <img id="ynov-footer-logo" src='/src/lib/images/ynov-logo.png' alt="Logo d'ynov">
+    </picture>
     <div id="flex-div">
         <p>© 2024 - Rodolphe ANDRIEUX</p>
         <div id="flex-icons">

@@ -38,7 +38,7 @@
     }
 
     table {
-        margin: 30px 0;
+        margin: 2rem 0;
         width: 100%;
         border-collapse: collapse;
         border-top: solid 2px var(--color-theme-1);
