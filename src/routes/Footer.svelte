@@ -6,8 +6,8 @@
 
 <footer>
     <picture>
-        <source type="image/webp" srcset="/src/lib/images/ynov-logo.webp">
-        <img id="ynov-footer-logo" src='/src/lib/images/ynov-logo.png' alt="Logo d'ynov">
+        <source type="image/webp" srcset="/images/ynov-logo.webp">
+        <img id="ynov-footer-logo" src='/images/ynov-logo.png' alt="Logo d'ynov">
     </picture>
     <div id="flex-div">
         <p>© 2024 - Rodolphe ANDRIEUX - All rights reserved</p>
