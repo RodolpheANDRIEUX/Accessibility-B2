@@ -40,7 +40,7 @@
 		{#if post.comments}
 			<a href="/article/{post.id}#comments">
 				<aside>
-					<img class="comments-icon" src='/src/lib/images/comment.svg' alt="comment-icon" aria-hidden="true" />
+					<img class="comments-icon" src='/images/comment.svg' alt="comment-icon" aria-hidden="true" />
 					<p class="comments">{post.comments.length} comments</p>
 				</aside>
 			</a>
