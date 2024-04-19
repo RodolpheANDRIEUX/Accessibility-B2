@@ -35,13 +35,13 @@
 
         {#if data.image}
             <dialog>
-                <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}.webp" alt={data.image.imageAlt} />
+                <img src="/images/{data.image.imageName}/{data.image.imageName}.webp" alt={data.image.imageAlt} />
             </dialog>
             <button on:click={() => dialog.showModal()} on:keydown={(event) => { if (event.key === 'Enter') dialog.showModal(); }}>
                 <picture>
-                    <source media="(min-width: 540px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-992.webp" />
-                    <source type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-520.webp" />
-                    <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}.jpg" loading="lazy" alt={data.image.imageAlt} /> <!-- Fallback -->
+                    <source media="(min-width: 540px)" type="image/webp" srcset="/images/{data.image.imageName}/{data.image.imageName}-992.webp" />
+                    <source type="image/webp" srcset="/images/{data.image.imageName}/{data.image.imageName}-520.webp" />
+                    <img src="/images/{data.image.imageName}/{data.image.imageName}.jpg" loading="lazy" alt={data.image.imageAlt} /> <!-- Fallback -->
                 </picture>
             </button>
         {/if}

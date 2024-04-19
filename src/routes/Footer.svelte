@@ -11,8 +11,8 @@
     </picture>
     <div id="flex-div">
         <p>© 2024 - Rodolphe ANDRIEUX - All rights reserved</p>
-        <a href="/legal-notice">Legal Notice</a>
-        <a href="/terms-of-use">Terms of Use</a>
+        <a href="/">Legal Notice</a>
+        <a href="/">Terms of Use</a>
         <a href="/sitemap.xml">Sitemap</a>
         <div id="flex-icons">
             <a href="https://www.linkedin.com/in/rodolphe-andrieux" target="_blank">

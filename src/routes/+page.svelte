@@ -11,12 +11,12 @@
 <h1 class="visually-hidden">Un blog accessible de fou</h1>
 <p>How to right good <abbr title="Hypertext Markup Language">HTML</abbr></p>
 <picture>
-	<source media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/coffee.webp" />
-	<img aria-hidden="true" class="bg-decorations coffee1" src="/src/lib/images/coffee.png" alt="coffee" />
+	<source media="(min-width: 1000px)" type="image/webp" srcset="/images/coffee.webp" />
+	<img aria-hidden="true" class="bg-decorations coffee1" src="/images/coffee.png" alt="coffee" />
 </picture>
 <picture>
-	<source media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/coffee2.webp" />
-	<img aria-hidden="true" class="bg-decorations coffee" src="/src/lib/images/coffee2.png" alt="more coffee" />
+	<source media="(min-width: 1000px)" type="image/webp" srcset="/images/coffee2.webp" />
+	<img aria-hidden="true" class="bg-decorations coffee" src="/images/coffee2.png" alt="more coffee" />
 </picture>
 
 <section>
@@ -30,9 +30,9 @@
 				</div>
 				{#if post.image}
 					<picture>
-						<source media="(min-width: 600vh)" type="image/webp" srcset="/src/lib/images/{post.image.imageName}/{post.image.imageName}-365.webp" />
-						<source type="image/webp" srcset="/src/lib/images/{post.image.imageName}/{post.image.imageName}-520.webp" />
-						<img src="/src/lib/images/{post.image.imageName}/{post.image.imageName}.jpg" loading="lazy" alt={post.image.imageAlt} /> <!-- Fallback -->
+						<source media="(min-width: 600vh)" type="image/webp" srcset="/images/{post.image.imageName}/{post.image.imageName}-365.webp" />
+						<source type="image/webp" srcset="/images/{post.image.imageName}/{post.image.imageName}-520.webp" />
+						<img src="/images/{post.image.imageName}/{post.image.imageName}.jpg" loading="lazy" alt={post.image.imageAlt} /> <!-- Fallback -->
 					</picture>
 				{/if}
 			</article>
