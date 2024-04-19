@@ -9,7 +9,7 @@
 </svelte:head>
 
 <h1 class="visually-hidden">Un blog accessible de fou</h1>
-<p>How to right good <abbr title="Hypertext Markup Language">HTML</abbr></p>
+<p>How to write good <abbr title="Hypertext Markup Language">HTML</abbr></p>
 <picture>
 	<source media="(min-width: 1000px)" type="image/webp" srcset="/images/coffee.webp" />
 	<img aria-hidden="true" class="bg-decorations coffee1" src="/images/coffee.png" alt="coffee" />
