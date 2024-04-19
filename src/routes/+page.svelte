@@ -1,15 +1,15 @@
 <script>
 	export let data;
-	import comment from '$lib/images/comment.svg';
 	import { formatDate } from '$lib/Utils.js';
 </script>
 
 <svelte:head>
-	<title>Blog</title>
-	<meta name="description" content="Un blog accessible de fou" />
+	<title>Coffee Blog</title>
+	<meta name="description" content="Welcome to coffee blog" />
 </svelte:head>
 
 <h1 class="visually-hidden">Un blog accessible de fou</h1>
+<p>How to right good <abbr title="Hypertext Markup Language">HTML</abbr></p>
 <picture>
 	<source media="(min-width: 1000px)" type="image/webp" srcset="/src/lib/images/coffee.webp" />
 	<img aria-hidden="true" class="bg-decorations coffee1" src="/src/lib/images/coffee.png" alt="coffee" />
@@ -21,8 +21,8 @@
 
 <section>
 	{#each data.posts as post}
-		<a class="article-link" href="/article/{post.id}">
-			<article aria-labelledby="title-{post.id}">
+		<a class="article-link" href="/article/{post.id}" aria-labelledby="title-{post.id}">
+			<article>
 				<div role="article">
 					<time datetime={post.date}>{formatDate(post.date)}</time>
 					<h2 id="title-{post.id}" style="view-transition-name: {post.title};">{post.title}</h2>
@@ -32,7 +32,7 @@
 					<picture>
 						<source media="(min-width: 600vh)" type="image/webp" srcset="/src/lib/images/{post.image.imageName}/{post.image.imageName}-365.webp" />
 						<source type="image/webp" srcset="/src/lib/images/{post.image.imageName}/{post.image.imageName}-520.webp" />
-						<img src="/src/lib/images/{post.image.imageName}/{post.image.imageName}.jpg" alt={post.image.imageAlt} /> <!-- Fallback -->
+						<img src="/src/lib/images/{post.image.imageName}/{post.image.imageName}.jpg" loading="lazy" alt={post.image.imageAlt} /> <!-- Fallback -->
 					</picture>
 				{/if}
 			</article>
@@ -40,7 +40,7 @@
 		{#if post.comments}
 			<a href="/article/{post.id}#comments">
 				<aside>
-					<img class="comments-icon" src={comment} alt="comment-icon" />
+					<img class="comments-icon" src='/src/lib/images/comment.svg' alt="comment-icon" aria-hidden="true" />
 					<p class="comments">{post.comments.length} comments</p>
 				</aside>
 			</a>
@@ -102,7 +102,7 @@
 
 	.comments {
 		font-size: 1.2rem;
-		opacity: .5;
+		/*opacity: .5;*/
 	}
 
 	.article-link {
@@ -139,7 +139,7 @@
 	}
 
 	time {
-		opacity: .5;
+		/*opacity: .5;*/
 	}
 
 	h2 {

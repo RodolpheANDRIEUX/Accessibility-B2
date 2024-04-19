@@ -6,7 +6,7 @@
 <header>
 	<div id="logo">
 		<a href="/">
-			<img src={logo} alt="Blog" />
+			<img src={logo} alt="Coffee Blog" />
 		</a>
 	</div>
 

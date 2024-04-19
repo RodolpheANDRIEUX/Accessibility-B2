@@ -10,7 +10,10 @@
         <img id="ynov-footer-logo" src='/src/lib/images/ynov-logo.png' alt="Logo d'ynov">
     </picture>
     <div id="flex-div">
-        <p>© 2024 - Rodolphe ANDRIEUX</p>
+        <p>© 2024 - Rodolphe ANDRIEUX - All rights reserved</p>
+        <a href="/legal-notice">Legal Notice</a>
+        <a href="/terms-of-use">Terms of Use</a>
+        <a href="/sitemap.xml">Sitemap</a>
         <div id="flex-icons">
             <a href="https://www.linkedin.com/in/rodolphe-andrieux" target="_blank">
                 <img src={linkedin} alt="Logo LinkedIn" width="40" height="40">
@@ -29,6 +32,7 @@
         align-items: flex-start;
         background-color: #2e2e2e;
         color: var(--color-bg-0);
+        padding-bottom: 3rem;
     }
 
     #flex-div {
@@ -40,8 +44,9 @@
     }
 
     footer p {
-        margin-bottom: 10px;
         padding: 0 1rem;
+        text-align: center;
+        margin-bottom: 0;
     }
 
     footer #flex-icons {
@@ -50,6 +55,7 @@
         align-items: center;
         flex-direction: row;
         gap: 20px;
+        margin-top: 1rem;
     }
 
     footer #ynov-footer-logo {
@@ -61,9 +67,10 @@
 
     a {
         transition: transform .3s;
+        color: var(--color-bg-0);
     }
 
-    a:hover {
+    #flex-icons a:hover {
         transform: scale(1.2);
     }
 </style>

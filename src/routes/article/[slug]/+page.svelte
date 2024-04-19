@@ -23,8 +23,8 @@
 </script>
 
 <svelte:head>
-    <title>{data.title}</title>
-    <meta name="description" content="Article de blog {data.title}" />
+    <title>{data.title} - coffee blog</title>
+    <meta name="description" content="Article de coffee blog {data.title}" />
 </svelte:head>
 
 <section>
@@ -41,7 +41,7 @@
                 <picture>
                     <source media="(min-width: 540px)" type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-992.webp" />
                     <source type="image/webp" srcset="/src/lib/images/{data.image.imageName}/{data.image.imageName}-520.webp" />
-                    <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}.jpg" alt={data.image.imageAlt} /> <!-- Fallback -->
+                    <img src="/src/lib/images/{data.image.imageName}/{data.image.imageName}.jpg" loading="lazy" alt={data.image.imageAlt} /> <!-- Fallback -->
                 </picture>
             </button>
         {/if}
@@ -89,7 +89,7 @@
     time {
         font-size: 1.2rem;
         font-weight: 300;
-        opacity: .5;
+        opacity: .82;
     }
 
     #comment time {

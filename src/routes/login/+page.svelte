@@ -6,7 +6,7 @@
 		'username': '',
 		'mail': '',
 		'password': '',
-		'confirm password': ''
+		// 'confirm password': ''
 	};
 
 	function updateValue(fieldKey, value) {
@@ -31,24 +31,19 @@
 			return false;
 		}
 
-		if (!fields.mail.includes('@')) {
-			errorMessage = 'The email address is not valid.';
-			return false;
-		}
+		// const hasUppercase = /[A-Z]/.test(fields.password);
+		// const hasLowercase = /[a-z]/.test(fields.password);
+		// const hasDigits = /\d/.test(fields.password);
 
-		const hasUppercase = /[A-Z]/.test(fields.password);
-		const hasLowercase = /[a-z]/.test(fields.password);
-		const hasDigits = /\d/.test(fields.password);
+		// if (fields.password.length < 8) {
+		// 	errorMessage = 'The password must be at least 8 characters long';
+		// 	return false;
+		// }
 
-		if (fields.password.length < 8) {
-			errorMessage = 'The password must be at least 8 characters long';
-			return false;
-		}
-
-		if (fields.password !== fields['confirm password']) {
-			errorMessage = 'Passwords do not match.';
-			return false;
-		}
+		// if (fields.password !== fields['confirm password']) {
+		// 	errorMessage = 'Passwords do not match.';
+		// 	return false;
+		// }
 
 		errorMessage = 'ok fine, you can log in now 😉';
 		return true;
@@ -64,13 +59,13 @@
 </script>
 
 <svelte:head>
-	<title>Login</title>
-	<meta name="description" content="Login to the blog" />
+	<title>Login - Coffee Blog</title>
+	<meta name="description" content="Login to the coffee blog" />
 </svelte:head>
 
 <section>
 	<div id="container" in:fade={{ delay: 100, duration: 400 }}>
-		<h1 in:slide={{ delay: 200, duration: 400 }}>Sign up</h1>
+		<h1 in:slide={{ delay: 200, duration: 400 }}>Log in</h1>
 		{#if errorMessage}
 			<p id="errorMessage" in:slide={{ duration: 400 }}>{errorMessage}</p>
 		{/if}
